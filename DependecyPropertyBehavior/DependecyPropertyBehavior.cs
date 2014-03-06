@@ -111,8 +111,7 @@ namespace DependecyPropertyBehaviorNamesapce
                 .ToArray();
 
             return Expression.Lambda(
-                eventInfo
-                .EventHandlerType,
+                eventInfo.EventHandlerType,
                 Expression.Call(Expression.Constant(action), "Invoke", Type.EmptyTypes),
                 parameters
                 )
