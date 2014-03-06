@@ -1,0 +1,24 @@
+﻿<Window 
+    x:Class="DependecyPropertyBehaviorNamesapce.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:DependecyPropertyBehaviorNamesapce"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    Title="MainWindow"
+    Width="300"
+    SizeToContent="Height"
+    Background="AliceBlue"
+    >
+    <StackPanel>
+        <PasswordBox>
+            <i:Interaction.Behaviors>
+                <local:DependecyPropertyBehavior 
+                    UpdateEvent="PasswordChanged"
+                    Property="Password"
+                    Binding="{Binding Text, ElementName=TestTextBox}"
+                    />
+            </i:Interaction.Behaviors>
+        </PasswordBox>
+        <TextBox x:Name="TestTextBox" />
+    </StackPanel>
+</Window>
