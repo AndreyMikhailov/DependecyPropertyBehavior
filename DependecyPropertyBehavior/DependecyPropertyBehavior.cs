@@ -95,7 +95,8 @@ namespace DependecyPropertyBehaviorNamesapce
             object oldValue = _propertyInfo.GetValue(AssociatedObject, null);
             if (oldValue.Equals(e.NewValue)) return;
             
-            _propertyInfo.SetValue(AssociatedObject, e.NewValue, null);
+            if (_propertyInfo.CanWrite)
+                _propertyInfo.SetValue(AssociatedObject, e.NewValue, null);
 
             base.OnPropertyChanged(e);
         }
